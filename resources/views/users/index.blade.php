@@ -4,7 +4,7 @@
 <div class="container">
     <h3 class="mb-4">Daftar User</h3>
 
-    <a href="{{ route('users.create') }}" class="btn btn-success mb-3">+ Tambah User</a>
+    <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Tambah User</a>
 
     @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
@@ -26,11 +26,15 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ ucfirst($user->role) }}</td>
                 <td>
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block">
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-icon" title="Edit">
+                        <i class="bx bx-edit"></i>
+                    </a>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-icon" onclick="return confirm('Yakin ingin menghapus?')" title="Hapus">
+                            <i class="bx bx-trash"></i>
+                        </button>
                     </form>
                 </td>
             </tr>

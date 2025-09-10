@@ -33,7 +33,7 @@
 
         <li class="menu-item {{ request()->is('pengurus*') ? 'active' : '' }}">
             <a href="{{ route('pengurus.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-id-card"></i>
+                <i class="menu-icon bx bx-user-voice"></i>
                 <div>Pengurus</div>
             </a>
         </li>
@@ -47,14 +47,14 @@
 
         <li class="menu-item {{ request()->is('kehadiran*') ? 'active' : '' }}">
             <a href="{{ route('kehadiran.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-check-circle"></i>
+                <i class="menu-icon bx bx-check-square"></i>
                 <div>Kehadiran</div>
             </a>
         </li>
 
         <li class="menu-item {{ request()->is('iuran*') ? 'active' : '' }}">
             <a href="{{ route('iuran.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-money"></i>
+                <i class="menu-icon bx bx-wallet"></i>
                 <div>Iuran</div>
             </a>
         </li>

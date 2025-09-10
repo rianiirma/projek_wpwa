@@ -31,11 +31,15 @@
                 <td>{{ $a->tanggal_gabung }}</td>
                 <td>{{ $a->status }}</td>
                 <td>
-                    <a href="{{ route('anggota.edit', $a->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('anggota.edit', $a->id) }}" class="btn btn-warning btn-icon" title="Edit">
+                    <i class="bx bx-edit"></i>
+                    </a>
                     <form action="{{ route('anggota.destroy', $a->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus?')">Hapus</button>
+                        <button class="btn btn-danger btn-icon" onclick="return confirm('Yakin hapus?')" title="Hapus">
+                        <i class="bx bx-trash"></i>
+                        </button>
                     </form>
                 </td>
             </tr>

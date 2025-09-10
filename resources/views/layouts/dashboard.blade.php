@@ -3,10 +3,13 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
 
-    <div class="row mb-4 text-center">
-        <h3 class="fw-bold">Selamat Datang di Dashboard WPWA 👋</h3>
-        <small class="text-muted">Halaman Admin</small>
+    <div class="text-center mb-4">
+        <img src="{{ Auth::user()->foto ? asset('storage/'.Auth::user()->foto) : asset('admin/assets/img/avatars/1.png') }}" class="rounded-circle" width="100" height="100" alt="Admin Foto">
+        <h3 class="mt-3">Selamat Datang di Halaman Admin 👋</h3>
+        <p>{{ Auth::user()->name }}</p>
     </div>
+
+
 
     <div class="row">
         <!-- Users -->
@@ -25,7 +28,7 @@
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
-                    <i class="bx bx-user fs-1 text-success"></i>
+                    <i class="bx bx-group fs-1 text-success"></i>
                     <h5 class="mt-2">Anggota</h5>
                     <p class="text-muted">{{ $jumlahAnggota ?? 0 }} orang</p>
                     <a href="{{ route('anggota.index') }}" class="btn btn-sm btn-outline-success">Lihat</a>
@@ -51,7 +54,7 @@
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
-                    <i class="bx bx-calendar-event fs-1 text-info"></i>
+                    <i class="bx bx-calendar fs-1 text-info"></i>
                     <h5 class="mt-2">Kegiatan</h5>
                     <p class="text-muted">{{ $jumlahKegiatan ?? 0 }} kegiatan</p>
                     <a href="{{ route('kegiatan.index') }}" class="btn btn-sm btn-outline-info">Lihat</a>

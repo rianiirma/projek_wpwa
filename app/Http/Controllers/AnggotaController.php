@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnggotaController extends Controller
 {
@@ -20,7 +21,6 @@ class AnggotaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id'        => 'required|exists:users,id',
             'nama'           => 'required|string|max:255',
             'alamat'         => 'nullable|string',
             'no_hp'          => 'nullable|string|max:15',
@@ -28,7 +28,16 @@ class AnggotaController extends Controller
             'status'         => 'required|in:aktif,pasif,tidak',
         ]);
 
-        Anggota::create($request->all());
+        // otomatis ambil user yang login
+        Anggota::create([
+            'user_id'        => Auth::id(),
+            'nama'           => $request->nama,
+            'alamat'         => $request->alamat,
+            'no_hp'          => $request->no_hp,
+            'tanggal_gabung' => $request->tanggal_gabung,
+            'status'         => $request->status,
+        ]);
+
         return redirect()->route('anggota.index')->with('success', 'Data anggota berhasil ditambahkan');
     }
 
@@ -47,7 +56,14 @@ class AnggotaController extends Controller
             'status'         => 'required|in:aktif,pasif,tidak',
         ]);
 
-        $anggota->update($request->all());
+        $anggota->update([
+            'nama'           => $request->nama,
+            'alamat'         => $request->alamat,
+            'no_hp'          => $request->no_hp,
+            'tanggal_gabung' => $request->tanggal_gabung,
+            'status'         => $request->status,
+        ]);
+
         return redirect()->route('anggota.index')->with('success', 'Data anggota berhasil diupdate');
     }
 

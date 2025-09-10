@@ -31,11 +31,15 @@
                 <td>{{ $k->tempat }}</td>
                 <td>{{ $k->keterangan }}</td>
                 <td>
-                    <a href="{{ route('kegiatan.edit', $k->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('kegiatan.edit', $k->id) }}" class="btn btn-warning btn-icon" title="Edit">
+                        <i class="bx bx-edit"></i>
+                    </a>
                     <form action="{{ route('kegiatan.destroy', $k->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus?')">Hapus</button>
+                        <button class="btn btn-danger btn-icon" onclick="return confirm('Yakin hapus?')" title="Hapus">
+                        <i class="bx bx-trash"></i>
+                        </button>
                     </form>
                 </td>
             </tr>

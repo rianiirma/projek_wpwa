@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $jumlahPengurus  = Pengurus::count();
         $jumlahKegiatan  = Kegiatan::count();
         $jumlahKehadiran = Kehadiran::count();
-        $jumlahIuran     = Iuran::count();
+        $jumlahIuran = Iuran::sum('jumlah');
 
         // Kirim ke view
         return view('layouts.dashboard', compact(
