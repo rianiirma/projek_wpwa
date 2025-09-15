@@ -4,28 +4,29 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;//
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
-        'id',
         'name',
         'email',
-        'role',
         'password',
+        'role', // admin / pengurus / anggota
     ];
-    public $timestamp = true;
 
-    public function siswa()
+    public $timestamps = true;
+
+    public function anggota()
     {
-        return $this->hasMany(Siswa::class);
+        return $this->hasOne(Anggota::class, 'user_id');
     }
 
-    public function guru()
+    public function pengurus()
     {
-        return $this->hasOne(Guru::class, 'id_user');
+        return $this->hasOne(Pengurus::class, 'user_id');
     }
-
 }
+
