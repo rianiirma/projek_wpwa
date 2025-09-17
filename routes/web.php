@@ -17,17 +17,18 @@ use App\Http\Controllers\Anggota\IuranController as AnggotaIuranController;
 // =======================
 // PENGURUS CONTROLLERS
 // =======================
-use App\Http\Controllers\Anggota\KegiatanController as AnggotaKegiatanController;
-use App\Http\Controllers\Anggota\KehadiranController as AnggotaKehadiranController;
 use App\Http\Controllers\Pengurus\AnggotaController as PengurusAnggotaController;
 use App\Http\Controllers\Pengurus\DashboardController as PengurusDashboardController;
 use App\Http\Controllers\Pengurus\IuranController as PengurusIuranController;
+use App\Http\Controllers\Pengurus\KegiatanController as PengurusKegiatanController;
+use App\Http\Controllers\Pengurus\KehadiranController as PengurusKehadiranController;
 
 // =======================
 // ANGGOTA CONTROLLERS
 // =======================
-use App\Http\Controllers\Pengurus\KegiatanController as PengurusKegiatanController;
-use App\Http\Controllers\Pengurus\KehadiranController as PengurusKehadiranController;
+use App\Http\Controllers\Anggota\KegiatanController as AnggotaKegiatanController;
+use App\Http\Controllers\Anggota\KehadiranController as AnggotaKehadiranController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -84,7 +85,9 @@ Route::middleware(['auth', 'role:pengurus'])
     ->prefix('pengurus')
     ->name('pengurus.')
     ->group(function () {
-        Route::get('/dashboard', [PengurusDashboardController::class, 'index'])->name('dashboard');
+        // Dashboard
+        Route::get('/dashboard', [PengurusDashboardController::class, 'index'])
+            ->name('dashboard');
 
         // CRUD
         Route::resource('anggota', PengurusAnggotaController::class);
