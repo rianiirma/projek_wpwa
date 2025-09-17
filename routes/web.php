@@ -85,8 +85,7 @@ Route::middleware(['auth', 'role:pengurus'])
     ->prefix('pengurus')
     ->name('pengurus.')
     ->group(function () {
-        // Dashboard
-        Route::get('/dashboard', [PengurusDashboardController::class, 'index'])
+        Route::get('/dashboard', [\App\Http\Controllers\Pengurus\DashboardController::class, 'index'])
             ->name('dashboard');
 
         // CRUD
