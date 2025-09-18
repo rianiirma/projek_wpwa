@@ -28,12 +28,12 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <a class="dropdown-item fw-bold text-dark" style="color:#dc3545 !important;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="bx bx-power-off me-2" style="color:#dc3545 !important;"></i>
+                            <span class="align-middle">Logout</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="bx bx-power-off me-2"></i>
-                                <span>Logout</span>
-                            </button>
                         </form>
                     </li>
                 </ul>

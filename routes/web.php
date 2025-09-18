@@ -81,18 +81,14 @@ Route::middleware(['auth', 'role:admin'])
 // =======================
 // WPWA - PENGURUS
 // =======================
-Route::middleware(['auth', 'role:pengurus'])
-    ->prefix('pengurus')
-    ->name('pengurus.')
-    ->group(function () {
-        Route::get('/dashboard', [\App\Http\Controllers\Pengurus\DashboardController::class, 'index'])
-            ->name('dashboard');
+Route::middleware(['auth', 'role:pengurus'])->prefix('pengurus')->name('pengurus.')->group(function () {
+    Route::get('dashboard', [App\Http\Controllers\Pengurus\DashboardController::class, 'index'])->name('dashboard');
+   
+        Route::resource('kegiatan', App\Http\Controllers\Pengurus\KegiatanController::class);
+        Route::resource('kehadiran', App\Http\Controllers\Pengurus\KehadiranController::class);
+        Route::resource('iuran', App\Http\Controllers\Pengurus\IuranController::class);
+        Route::resource('anggota', App\Http\Controllers\Pengurus\AnggotaController::class)->only(['index', 'show', 'edit', 'update']);
 
-        // CRUD
-        Route::resource('anggota', PengurusAnggotaController::class);
-        Route::resource('kegiatan', PengurusKegiatanController::class);
-        Route::resource('kehadiran', PengurusKehadiranController::class);
-        Route::resource('iuran', PengurusIuranController::class);
     });
 
 // =======================

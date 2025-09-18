@@ -22,35 +22,31 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/demo.css')}}" />
 
+
     <!-- Custom warna hijau-putih Assalaam -->
     <style>
-        .navbar,
-        .bg-navbar {
-            background-color: #198754 !important;
-            /* hijau */
-        }
+    
+       .nav-link {
+       color: #444;
+       padding: 10px 15px;
+       border-radius: 8px;
+       font-size: 14px;
+       transition: 0.2s;
+       }
 
-        .navbar .nav-link,
-        .navbar .navbar-brand,
-        .navbar .dropdown-item {
-            color: #fff !important;
-        }
+       .nav-link i {
+       font-size: 18px;
+       }
 
-        .navbar .nav-link.active {
-            font-weight: bold;
-            border-bottom: 2px solid #fff;
-        }
+       .nav-link:hover {
+       background-color: #f9fafb;
+       }
 
-        .layout-menu {
-            background-color: #f8f9fa !important;
-            /* putih */
-        }
-
-        .menu-item.active>.menu-link {
-            background-color: #198754 !important;
-            color: #fff !important;
-            border-radius: 6px;
-        }
+       .nav-link.active {
+       background-color: #eef2ff; /* highlight */
+       color: #4f46e5;
+       font-weight: 600;
+       }
 
     </style>
 

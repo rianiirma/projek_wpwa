@@ -3,11 +3,12 @@
 @section('content')
 <div class="container">
     <!-- Header -->
-    <div class="text-center mb-5">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Pengurus Icon" width="100" class="rounded-circle shadow-sm mb-3">
-        <h2>Selamat Datang di Halaman Pengurus 👋</h2>
-        <p class="text-muted">Pengurus WPWA</p>
-    </div>
+     <div class="text-center mb-4">
+         <img src="{{ Auth::user()->foto ? asset('storage/'.Auth::user()->foto) : asset('admin/assets/img/avatars/1.png') }}" class="rounded-circle" width="100" height="100" alt="Admin Foto">
+         <h3 class="mt-3">Selamat Datang di Halaman Pengurus 👋</h3>
+         <p>{{ Auth::user()->name }}</p>
+     </div>
+
 
     <!-- Card Statistik -->
     <div class="row g-4">
