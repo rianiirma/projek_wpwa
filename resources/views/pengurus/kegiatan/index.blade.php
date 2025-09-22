@@ -18,18 +18,24 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
-                        <th>Nama Kegiatan</th>
+                        <th>No</th>
+                        <th>Kegiatan</th>
+                        <th>Jenis</th>
                         <th>Tanggal</th>
+                        <th>Tempat</th>
+                        <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($kegiatan as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->nama_kegiatan }}</td>
+                        <td>{{ $item->jenis }}</td>
                         <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</td>
+                        <td>{{ $item->tempat }}</td>
+                        <td>{{ $item->keterangan }}</td>
                         <td>
                             <a href="{{ route('pengurus.kegiatan.edit', $item->id) }}" class="btn btn-sm btn-warning">
                                 <i class='bx bx-edit'></i>

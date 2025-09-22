@@ -13,9 +13,11 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
+                        <th>No</th>
                         <th>Nama</th>
-                        <th>Email</th>
+                        <th>Alamat</th>
+                        <th>No HP</th>
+                        <th>Tanggal Gabung</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -23,12 +25,15 @@
                 <tbody>
                     @forelse($anggota as $a)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+
+                        <td>{{ $a->id }}</td>
                         <td>{{ $a->nama }}</td>
-                        <td>{{ $a->email }}</td>
+                        <td>{{ $a->alamat }}</td>
+                        <td>{{ $a->no_hp }}</td>
+                        <td>{{ $a->tanggal_gabung }}</td>
                         <td>
                             @if($a->status == 'aktif')
-                            <span class="badge bg-success">Aktif</span>
+                            <span class="badge bg-primary">Aktif</span>
                             @else
                             <span class="badge bg-secondary">Tidak Aktif</span>
                             @endif

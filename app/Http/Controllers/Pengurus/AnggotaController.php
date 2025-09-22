@@ -33,6 +33,7 @@ class AnggotaController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('pengurus.anggota.index')->with('success', 'Status anggota berhasil diperbarui.');
+        return redirect()->route('pengurus.anggota.index')
+            ->with('success', 'Status anggota berhasil diperbarui.');
     }
 }

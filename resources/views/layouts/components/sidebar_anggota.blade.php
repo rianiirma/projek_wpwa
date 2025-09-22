@@ -18,6 +18,13 @@
         </li>
 
         <li class="menu-item">
+            <a href="{{ route('pengurus.anggota.index') }}" class="menu-link">
+                <i class="menu-icon bx bx-group"></i>
+                <div>Anggota</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
             <a href="{{ route('pengurus.kegiatan.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-calendar"></i>
                 <div>Kegiatan</div>
@@ -33,12 +40,6 @@
             <a href="{{ route('pengurus.iuran.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-wallet"></i>
                 <div>Iuran</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="{{ route('pengurus.anggota.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-group"></i>
-                <div>Anggota</div>
             </a>
         </li>
     </ul>

@@ -18,26 +18,20 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
-                        <th>Kegiatan</th>
+                        <th>No</th>
                         <th>Nama Anggota</th>
-                        <th>Status</th>
+                        <th>Nama Kegiatan</th>
+                        <th>Hadir</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($kehadiran as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->kegiatan->nama }}</td>
+                        <td>{{ $item->id }}</td>
                         <td>{{ $item->anggota->nama }}</td>
-                        <td>
-                            @if($item->status == 'Hadir')
-                            <span class="badge bg-success"><i class='bx bx-check'></i> Hadir</span>
-                            @else
-                            <span class="badge bg-danger"><i class='bx bx-x'></i> Tidak Hadir</span>
-                            @endif
-                        </td>
+                        <td>{{ $item->kegiatan->nama_kegiatan }}</td>
+                        <td>{{ $item->hadir ? 'Hadir' : 'Tidak' }}</td>
                         <td>
                             <a href="{{ route('pengurus.kehadiran.edit', $item->id) }}" class="btn btn-sm btn-warning">
                                 <i class='bx bx-edit'></i>

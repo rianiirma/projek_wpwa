@@ -18,20 +18,26 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
+                        <th>No</th>
                         <th>Nama Anggota</th>
-                        <th>Jumlah</th>
                         <th>Tanggal</th>
-                        <th>Aksi</th>
+                        <th>Jenis</th>
+                        <th>Jumlah Iuran</th>
+                        <th>Keterangan</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($iuran as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->anggota->nama }}</td>
-                        <td>Rp {{ number_format($item->jumlah, 0, ',', '.') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->anggota->nama ?? '-' }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->jenis }}</td>
+                        <td>
+                            Rp {{ number_format($item->jumlah, 0, ',', '.') }}
+                        </td>
+                        <td>{{ $item->keterangan }}</td>
                         <td>
                             <a href="{{ route('pengurus.iuran.edit', $item->id) }}" class="btn btn-sm btn-warning">
                                 <i class='bx bx-edit'></i>
